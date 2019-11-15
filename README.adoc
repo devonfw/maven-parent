@@ -41,7 +41,8 @@ In your repository the top-level `pom.xml` should look like this:
   <artifactId>«artifact-id»</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>${project.artifactId}</name>
-  <description>«descriotion»</description>
+  <description>«description»</description>
+  ...
   
   <properties>
     <github.repository>«repository»</github.repository>
@@ -49,7 +50,7 @@ In your repository the top-level `pom.xml` should look like this:
     <!--
     <github.organization>devonfw-forge</github.organization>
     <java.version>11</java.version>
-      -->
+    -->
   </properties>
   
   ...

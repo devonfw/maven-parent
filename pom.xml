@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.devonfw</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>${revision}${changelist}</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Parent POM for maven-based projects in devonfw.</description>
@@ -21,6 +21,9 @@
     <github.repository>maven-parent</github.repository>
     <maven.release.repository>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
     <maven.snapshot.repository>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
+    <changelist>-SNAPSHOT</changelist>
+    <revision>${maven.build.timestamp}</revision>
+    <maven.build.timestamp.format>yyyy.MM.dd.HH.mm.ss</maven.build.timestamp.format>
   </properties>
 
   <build>
@@ -472,7 +475,7 @@
       <url>${maven.snapshot.repository}</url>
     </snapshotRepository>
     <site>
-      <id>devonfw-site</id>
+      <id>maven-site</id>
       <url>file://${user.dir}/target/maven-site</url>
     </site>
   </distributionManagement>

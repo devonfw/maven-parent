@@ -1,0 +1,57 @@
+= maven-parent
+
+image:https://img.shields.io/github/license/devonfw/maven-parent.svg?label=License["Apache License, Version 2.0",link=https://github.com/devonfw/maven-parent/blob/develop/LICENSE]
+image:https://img.shields.io/maven-central/v/com.devonfw/maven-parent.svg?label=Maven%20Central["Maven Central",link=https://search.maven.org/search?q=g:com.devonfw]
+
+This repository contains the parent `pom.xml` for maven projects in http://devonfw.com[devonfw].
+It configures a lot of cross-cutting aspects in this central place to avoid redundancies between `pom.xml` files:
+
+* `pluginManagement` - defines versions and configuration defaults for maven plugins
+* `plugins` - defines the standard plugins and their configurations for the default build lifecycle for devonfw
+* `profiles` - defines optional features or dynamic aspects:
+** `deploy` - activates generation of `*-javadoc.jar` files as well as PGP signatures to deploy releases. Activated via `mvn -P deploy`. This is the default profile used by https://github.com/devonfw/ide/blob/master/documentation/Home.asciidoc#devon-ide[devonfw-ide] on `devon release`. 
+** `eclipse` - detect if maven runs within `m2e` inside Eclipse and use `eclipse-target` instead of `target` so that builds from Eclipse are decoupled from console builds. Otherwise `mvn clean` would break Eclipse, etc. This profile is triggered automatically in Eclipse.
+** `security` - run `org.owasp:dependency-check-maven:check` during the build in order to find known security vulnerabilities (CVE). Activated via `mvn -P security`. Is not active by default as it breaks the build even if a download failes due to temporary availability issues. Also CVEs are sometimes false positives. We strongly encourage to run this check nightly but do not recommend to use it as build-breaker in your CI.
+* `url` - configured for your github repository
+* `licensing` - set to ASL 2.0 and point to individual `LICENSE` file in your repository root
+* `issueManagement` - configured for github
+* `scm` - configured for github
+* `organization` - configured for devonfw and github
+* `distributionManagement` - configure repositories and site:
+** `release-repository` - set to `${maven.release.repository}` defaulting to OSSRH
+** `snapshot-repository` - set to `${maven.snapshot.repository}` defaulting to OSSRH
+** `maven-site` - stage site to project's toplevel `build.directory` (`target/maven-site`). From there you can do QA and transfer it to wherever you prefer.
+* `reporting` - plugins and configurations for maven site generation.
+* `encoding` - strictly use unicode (`UTF-8`)
+
+== Usage
+
+In your repository the top-level `pom.xml` should look like this:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.devonfw</groupId>
+    <artifactId>maven-parent</artifactId>
+    <version>1</version>
+  </parent>
+  <groupId>com.devonfw.«suffix»</groupId>
+  <artifactId>«artifact-id»</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>${project.artifactId}</name>
+  <description>«descriotion»</description>
+  
+  <properties>
+    <github.repository>«repository»</github.repository>
+    <!-- optional if defaults do not apply: -->
+    <!--
+    <github.organization>devonfw-forge</github.organization>
+    <java.version>11</java.version>
+      -->
+  </properties>
+  
+  ...
+</project>
+```

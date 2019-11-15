@@ -412,7 +412,7 @@
     </profile>
     <profile>
       <!-- separate eclipse build from command-line... -->
-      <id>devonfw.eclipse</id>
+      <id>eclipse</id>
       <activation>
         <property>
           <name>eclipse.application</name>

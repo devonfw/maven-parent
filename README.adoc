@@ -39,7 +39,7 @@ In your repository the top-level `pom.xml` should look like this:
   </parent>
   <groupId>com.devonfw.«suffix»</groupId>
   <artifactId>«artifact-id»</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>2020.12.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>«description»</description>
   ...

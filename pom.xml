@@ -479,7 +479,7 @@
 
   <organization>
     <name>devonfw</name>
-    <url>https://devonfw.com</url>
+    <url>https://github.com/${github.organization}/${github.repository}/graphs/contributors</url>
   </organization>
 
   <developers>

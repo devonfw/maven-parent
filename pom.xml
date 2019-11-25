@@ -107,6 +107,7 @@
             <docfilessubdirs>true</docfilessubdirs>
             <stylesheetfile>${user.dir}/src/main/javadoc/stylesheet.css</stylesheetfile>
             <doclint>none</doclint>
+            <source>${java.version}</source>
             <doctitle>JavaDocs for ${project.name} ${project.version}</doctitle>
             <windowtitle>JavaDocs for ${project.name} ${project.version}</windowtitle>
           </configuration>

@@ -15,10 +15,11 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jacoco.version>0.8.5</jacoco.version>
     <flatten.mode>oss</flatten.mode>
     <github.organization>devonfw</github.organization>
     <github.repository>maven-parent</github.repository>
+    <jacoco.version>0.8.5</jacoco.version>
+    <maven.archetype.version>3.1.2</maven.archetype.version>
     <maven.release.repository>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
     <maven.snapshot.repository>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
   </properties>
@@ -202,6 +203,16 @@
             </licenseMerges>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>${maven.archetype.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.archetype</groupId>
+          <artifactId>archetype-packaging</artifactId>
+          <version>${maven.archetype.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -363,6 +374,7 @@
             <tag>@todo</tag>
             <tag>FIXME</tag>
             <tag>@deprecated</tag>
+            <tag>REVIEW</tag>
           </tags>
         </configuration>
       </plugin>

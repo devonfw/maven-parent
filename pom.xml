@@ -354,11 +354,13 @@
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
+        <configuration>
+          <failOnError>false</failOnError>
+        </configuration>
         <reportSets>
           <reportSet>
             <reports>
-              <!-- https://github.com/jeremylong/DependencyCheck/issues/386 -->
-              <!-- <report>aggregate</report> -->
+              <report>aggregate</report>
               <report>check</report>
             </reports>
           </reportSet>

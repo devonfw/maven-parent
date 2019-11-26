@@ -340,17 +340,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <notree>true</notree>
-          <show>private</show>
-          <encoding>${project.reporting.outputEncoding}</encoding>
-          <charset>${project.build.sourceEncoding}</charset>
-          <docfilessubdirs>true</docfilessubdirs>
-          <stylesheetfile>${user.dir}/src/main/javadoc/stylesheet.css</stylesheetfile>
-          <doclint>none</doclint>
-          <doctitle>JavaDocs for ${project.name} ${project.version}</doctitle>
-          <windowtitle>JavaDocs for ${project.name} ${project.version}</windowtitle>
-        </configuration>
         <reportSets>
           <reportSet>
             <id>devonfw.javadoc</id>

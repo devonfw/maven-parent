@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.devonfw</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>1</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Parent POM for maven-based projects in devonfw.</description>

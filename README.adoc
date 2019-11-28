@@ -12,6 +12,7 @@ It configures a lot of cross-cutting aspects in this central place to avoid redu
 ** `deploy` - activates generation of `*-javadoc.jar` files as well as PGP signatures to deploy releases. Activated via `mvn -P deploy`. This is the default profile used by https://github.com/devonfw/ide/blob/master/documentation/Home.asciidoc#devon-ide[devonfw-ide] on `devon release`. 
 ** `eclipse` - detect if maven runs within `m2e` inside Eclipse and use `eclipse-target` instead of `target` so that builds from Eclipse are decoupled from console builds. Otherwise `mvn clean` would break Eclipse, etc. This profile is triggered automatically in Eclipse.
 ** `security` - run `org.owasp:dependency-check-maven:check` during the build in order to find known security vulnerabilities (CVE). Activated via `mvn -P security`. Is not active by default as it breaks the build even if a download failes due to temporary availability issues. Also CVEs are sometimes false positives. We strongly encourage to run this check nightly but do not recommend to use it as build-breaker in your CI.
+** `licenses` - run `org.codehaus.mojo:license-maven-plugin` goals `aggregate-download-licenses` and `aggregate-add-third-party` during the build to analyse and check licenses of third-party dependencies.
 * `url` - configured for your github repository
 * `licensing` - set to ASL 2.0 and point to individual `LICENSE` file in your repository root
 * `issueManagement` - configured for github
@@ -56,3 +57,62 @@ In your repository the top-level `pom.xml` should look like this:
   ...
 </project>
 ```
+
+== Deployment
+
+For deployment of releases you need the following prerequesites:
+
+* Permitted account for https://oss.sonatype.org/
+* https://gnupg.org/download/[GnuPG installed]
+* A PGP keypair generated with pgp
+* Your PGP public-key published to keyservers and registered to OSSRH for `com.devonfw`
+* Have https://github.com/devonfw/ide/blob/master/documentation/Home.asciidoc#devonfw-ide[devonfw-ide] installed.
+
+Then you can configure your setup as following:
+
+. `cd projects/devonfw` (tweak path according to your setup)
+. `devon mvn --encrypt-password`
+. enter your password for https://oss.sonatype.org/
+. Copy the encrypted password (`{...}`)
+. `vi conf/.m2/settings.xml` (use the editor of your choice)
+. Enter the following sections to your `settings.xml` and save it:
+```xml
+  <servers>
+    <server>
+      <id>release-repository</id>
+      <username>«LOGIN»</username>
+      <password>«ENCRYPTED-PASSWORD»</password>
+    </server>
+    <server>
+      <id>snapshot-repository</id>
+      <username>«LOGIN»</username>
+      <password>«ENCRYPTED-PASSWORD»</password>
+    </server>
+  </servers>
+
+  <!-- Only required if you have multiple PGP keys -->
+  <profiles>
+    <profile>
+      <id>devonfw</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <gpg.keyname>«PGP-KEY-ID»</gpg.keyname>
+      </properties>
+    </profile>
+  </profiles>
+```
+
+Of course you are smart enough to replace the variables with the proper values.
+
+From now on, when you want to create a release all you need to do is:
+```
+devon release
+```
+However, ensure to call this on a clean clone of the official repository after you have pulled the latest changes and all features for the release are included and properly tested. As a best practice keep your cloned forks in `main` workspace while you clone the official repos in `stable` workspace and build releases from there.
+
+Sources:
+
+* https://central.sonatype.org/pages/ossrh-guide.html[OSSRH-Guide]
+* https://central.sonatype.org/pages/apache-maven.html[OSSRH-Maven]

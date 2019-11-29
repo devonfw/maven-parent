@@ -18,6 +18,7 @@
     <flatten.mode>oss</flatten.mode>
     <github.organization>devonfw</github.organization>
     <github.repository>maven-parent</github.repository>
+    <github.default.branch>master</github.default.branch>
     <maven.release.repository>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
     <maven.snapshot.repository>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
     <maven.archetype.version>3.1.2</maven.archetype.version>
@@ -541,7 +542,7 @@
   <scm>
     <connection>scm:git:https://github.com/${github.organization}/${github.repository}.git</connection>
     <developerConnection>scm:git:https://github.com/${github.organization}/${github.repository}.git</developerConnection>
-    <url>https://github.com/${github.organization}/${github.repository}/tree/master</url>
+    <url>https://github.com/${github.organization}/${github.repository}/tree/${github.default.branch}</url>
     <tag/>
   </scm>
 
@@ -604,7 +605,7 @@
   <licenses>
     <license>
       <name>Apache Software License, Version 2.0</name>
-      <url>https://github.com/${github.organization}/${github.repository}/blob/master/LICENSE</url>
+      <url>https://github.com/${github.organization}/${github.repository}/blob/${github.default.branch}/LICENSE</url>
       <distribution>repro</distribution>
       <comments/>
     </license>

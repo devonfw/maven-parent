@@ -79,12 +79,7 @@ Then you can configure your setup as following:
 ```xml
   <servers>
     <server>
-      <id>release-repository</id>
-      <username>«LOGIN»</username>
-      <password>«ENCRYPTED-PASSWORD»</password>
-    </server>
-    <server>
-      <id>snapshot-repository</id>
+      <id>repository</id>
       <username>«LOGIN»</username>
       <password>«ENCRYPTED-PASSWORD»</password>
     </server>

@@ -548,12 +548,12 @@
 
   <distributionManagement>
     <repository>
-      <id>release-repository</id>
+      <id>repository</id>
       <name>release repository</name>
       <url>${maven.release.repository}</url>
     </repository>
     <snapshotRepository>
-      <id>snapshot-repository</id>
+      <id>repository</id>
       <name>snapshot repository</name>
       <url>${maven.snapshot.repository}</url>
     </snapshotRepository>

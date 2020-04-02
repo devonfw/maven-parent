@@ -46,7 +46,7 @@
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
     <mojo.taglist.plugin.version>2.4</mojo.taglist.plugin.version>
     <mojo.cobertura.plugin.version>2.7</mojo.cobertura.plugin.version>
-    <mojo.flatten.plugin.version>1.1.0</mojo.flatten.plugin.version>
+    <mojo.flatten.plugin.version>1.2.2</mojo.flatten.plugin.version>
     <!-- https://github.com/mojohaus/license-maven-plugin/issues/358 -->
     <mojo.license.plugin.version>1.20</mojo.license.plugin.version>
     <mojo.servicedocgen.plugin.version>1.0.0-beta-3</mojo.servicedocgen.plugin.version>

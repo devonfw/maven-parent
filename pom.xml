@@ -50,6 +50,7 @@
     <!-- https://github.com/mojohaus/license-maven-plugin/issues/358 -->
     <mojo.license.plugin.version>1.20</mojo.license.plugin.version>
     <mojo.servicedocgen.plugin.version>1.0.0-beta-3</mojo.servicedocgen.plugin.version>
+    <mojo.exec.plugin.version>1.6.0</mojo.exec.plugin.version>
     <sonar.maven.plugin.version>3.7.0.1746</sonar.maven.plugin.version>
     <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
     <owasp.dependency.check.plugin.version>5.2.2</owasp.dependency.check.plugin.version>
@@ -229,6 +230,11 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>servicedocgen-maven-plugin</artifactId>
           <version>${mojo.servicedocgen.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${mojo.exec.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>

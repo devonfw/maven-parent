@@ -343,9 +343,6 @@
           <warName>${project.artifactId}</warName>
         </configuration>
       </plugin>
-
-
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
@@ -423,7 +420,6 @@
       </plugin>
     </plugins>
   </reporting>
-
   <profiles>
     <!-- JaCoCo for test coverage -->
     <profile>
@@ -451,7 +447,6 @@
         </plugins>
       </build>
     </profile>
-
     <profile>
       <id>deploy</id>
       <build>

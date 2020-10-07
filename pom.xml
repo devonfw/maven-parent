@@ -421,6 +421,7 @@
       </plugin>
     </plugins>
   </reporting>
+
   <profiles>
     <!-- JaCoCo for test coverage -->
     <profile>

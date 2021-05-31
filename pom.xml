@@ -66,9 +66,9 @@
           <version>${maven.resources.plugin.version}</version>
         </plugin>
         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-compiler-plugin</artifactId>
-           <version>${maven.compiler.plugin.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -131,7 +131,7 @@
           <version>${maven.javadoc.plugin.version}</version>
           <configuration>
             <!-- http://jira.codehaus.org/browse/MJAVADOC-308 -->
-            <!--<maxmemory>5048m</maxmemory>-->
+            <!--<maxmemory>5048m</maxmemory> -->
             <notree>true</notree>
             <show>protected</show>
             <encoding>${project.reporting.outputEncoding}</encoding>
@@ -270,14 +270,14 @@
       </plugin>
 
       <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <configuration>
-           <encoding>${project.build.sourceEncoding}</encoding>
-           <source>${java.version}</source>
-           <target>${java.version}</target>
-           <fork>true</fork>
-         </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <fork>true</fork>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -437,7 +437,7 @@
           </reportSet>
         </reportSets>
       </plugin>
-     </plugins>
+    </plugins>
   </reporting>
 
   <profiles>
@@ -555,8 +555,8 @@
           <releases>
             <enabled>false</enabled>
           </releases>
-       </repository>
-     </repositories>
+        </repository>
+      </repositories>
     </profile>
   </profiles>
 
@@ -565,7 +565,8 @@
     <url>https://github.com/${github.organization}/${github.repository}/issues</url>
   </issueManagement>
 
-  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
+  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false"
+    child.scm.url.inherit.append.path="false">
     <connection>scm:git:https://github.com/${github.organization}/${github.repository}.git</connection>
     <developerConnection>scm:git:https://github.com/${github.organization}/${github.repository}.git</developerConnection>
     <url>https://github.com/${github.organization}/${github.repository}/tree/${github.default.branch}</url>

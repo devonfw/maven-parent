@@ -20,8 +20,8 @@
     <github.organization>devonfw</github.organization>
     <github.repository>maven-parent</github.repository>
     <github.default.branch>master</github.default.branch>
-    <maven.release.repository>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
-    <maven.snapshot.repository>https://oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
+    <maven.release.repository>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
+    <maven.snapshot.repository>https://s01.oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
     <maven.archetype.version>3.1.2</maven.archetype.version>
     <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>

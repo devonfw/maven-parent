@@ -574,12 +574,12 @@
 
   <distributionManagement>
     <repository>
-      <id>ossrh</id>
+      <id>repository</id>
       <name>release repository</name>
       <url>${maven.release.repository}</url>
     </repository>
     <snapshotRepository>
-      <id>ossrh</id>
+      <id>repository</id>
       <name>snapshot repository</name>
       <url>${maven.snapshot.repository}</url>
     </snapshotRepository>

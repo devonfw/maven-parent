@@ -44,6 +44,8 @@
     <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
     <maven.help.plugin.version>3.2.0</maven.help.plugin.version>
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+    <!-- To prevent gpg from using pinentry programs you can override this default to 'loopback' -->
+    <gpg.pin.entry.mode>ask</gpg.pin.entry.mode>
     <mojo.taglist.plugin.version>2.4</mojo.taglist.plugin.version>
     <mojo.cobertura.plugin.version>2.7</mojo.cobertura.plugin.version>
     <mojo.flatten.plugin.version>1.3.0</mojo.flatten.plugin.version>
@@ -469,6 +471,12 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+		    <arg>${gpg.pin.entry.mode}</arg>
+                  </gpgArguments>
+                </configuration>
               </execution>
             </executions>
           </plugin>

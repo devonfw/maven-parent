@@ -55,7 +55,7 @@
     <mojo.exec.plugin.version>1.6.0</mojo.exec.plugin.version>
     <sonar.maven.plugin.version>3.7.0.1746</sonar.maven.plugin.version>
     <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
-    <owasp.dependency.check.plugin.version>7.1.1</owasp.dependency.check.plugin.version>
+    <owasp.dependency.check.plugin.version>8.0.1</owasp.dependency.check.plugin.version>
     <spotbugs.plugin.version>3.1.12.2</spotbugs.plugin.version>
   </properties>
 

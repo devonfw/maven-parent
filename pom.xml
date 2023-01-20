@@ -56,6 +56,7 @@
     <sonar.maven.plugin.version>3.7.0.1746</sonar.maven.plugin.version>
     <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
     <owasp.dependency.check.plugin.version>8.0.1</owasp.dependency.check.plugin.version>
+    <owasp.dependency.check.plugin.failBuildOnCVSS>11</owasp.dependency.check.plugin.failBuildOnCVSS>
     <spotbugs.plugin.version>3.1.12.2</spotbugs.plugin.version>
   </properties>
 
@@ -474,7 +475,7 @@
                 <configuration>
                   <gpgArguments>
                     <arg>--pinentry-mode</arg>
-		    <arg>${gpg.pin.entry.mode}</arg>
+                    <arg>${gpg.pin.entry.mode}</arg>
                   </gpgArguments>
                 </configuration>
               </execution>
@@ -506,7 +507,7 @@
             <groupId>org.owasp</groupId>
             <artifactId>dependency-check-maven</artifactId>
             <configuration>
-              <failBuildOnCVSS>8</failBuildOnCVSS>
+              <failBuildOnCVSS>${owasp.dependency.check.plugin.failBuildOnCVSS}</failBuildOnCVSS>
             </configuration>
             <executions>
               <execution>

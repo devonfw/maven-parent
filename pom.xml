@@ -20,13 +20,15 @@
     <github.organization>devonfw</github.organization>
     <github.repository>maven-parent</github.repository>
     <github.default.branch>master</github.default.branch>
-    <maven.release.repository>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository>
-    <maven.snapshot.repository>https://s01.oss.sonatype.org/content/repositories/snapshots/</maven.snapshot.repository>
+    <maven.repository>https://s01.oss.sonatype.org</maven.repository>
+    <maven.release.repository>${maven.repository}/service/local/staging/deploy/maven2/</maven.release.repository>
+    <maven.snapshot.repository>${maven.repository}/content/repositories/snapshots/</maven.snapshot.repository>
     <maven.archetype.version>3.1.2</maven.archetype.version>
     <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
     <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+    <maven.nexus.staging.maven.plugin.version>1.6.13</maven.nexus.staging.maven.plugin.version>
     <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
     <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
     <maven.source.plugin.version>3.1.0</maven.source.plugin.version>
@@ -259,6 +261,11 @@
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>${spotbugs.plugin.version}</version>
         </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${maven.nexus.staging.maven.plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -480,6 +487,16 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>repository</serverId>
+              <nexusUrl>${maven.repository}</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
           </plugin>
         </plugins>
       </build>

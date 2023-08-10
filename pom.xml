@@ -23,35 +23,32 @@
     <maven.repository>https://s01.oss.sonatype.org</maven.repository>
     <maven.release.repository>${maven.repository}/service/local/staging/deploy/maven2/</maven.release.repository>
     <maven.snapshot.repository>${maven.repository}/content/repositories/snapshots/</maven.snapshot.repository>
-    <maven.archetype.version>3.1.2</maven.archetype.version>
-    <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
-    <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+    <maven.archetype.version>3.2.1</maven.archetype.version>
+    <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
+    <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
+    <maven.install.plugin.version>3.1.1</maven.install.plugin.version>
+    <maven.deploy.plugin.version>3.1.1</maven.deploy.plugin.version>
     <maven.nexus.staging.plugin.version>1.6.13</maven.nexus.staging.plugin.version>
     <maven.nexus.staging.deploy.skip>${maven.deploy.skip}</maven.nexus.staging.deploy.skip>
     <maven.nexus.staging.auto.release>true</maven.nexus.staging.auto.release>
     <maven.nexus.staging.auto.drop>false</maven.nexus.staging.auto.drop>
-    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
-    <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
-    <maven.source.plugin.version>3.1.0</maven.source.plugin.version>
-    <maven.checkstyle.plugin.version>3.1.0</maven.checkstyle.plugin.version>
+    <maven.clean.plugin.version>3.3.1</maven.clean.plugin.version>
+    <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
+    <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
     <maven.javadoc.plugin.version>3.1.1</maven.javadoc.plugin.version>
-    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
-    <maven.pmd.plugin.version>3.9.0</maven.pmd.plugin.version>
-    <maven.war.plugin.version>3.2.3</maven.war.plugin.version>
-    <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
-    <maven.help.plugin.version>3.2.0</maven.help.plugin.version>
-    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+    <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
+    <maven.war.plugin.version>3.4.0</maven.war.plugin.version>
+    <maven.antrun.plugin.version>3.1.0</maven.antrun.plugin.version>
+    <maven.help.plugin.version>3.4.0</maven.help.plugin.version>
+    <maven.gpg.plugin.version>3.1.0</maven.gpg.plugin.version>
     <!-- To prevent gpg from using pinentry programs you can override this default to 'loopback' -->
     <gpg.pin.entry.mode>ask</gpg.pin.entry.mode>
-    <mojo.flatten.plugin.version>1.3.0</mojo.flatten.plugin.version>
+    <mojo.flatten.plugin.version>1.5.0</mojo.flatten.plugin.version>
     <!-- https://github.com/mojohaus/license-maven-plugin/issues/358 -->
-    <mojo.license.plugin.version>1.20</mojo.license.plugin.version>
+    <mojo.license.plugin.version>2.2.0</mojo.license.plugin.version>
     <mojo.servicedocgen.plugin.version>1.0.0</mojo.servicedocgen.plugin.version>
-    <mojo.exec.plugin.version>1.6.0</mojo.exec.plugin.version>
+    <mojo.exec.plugin.version>3.1.0</mojo.exec.plugin.version>
     <sonar.maven.plugin.version>3.7.0.1746</sonar.maven.plugin.version>
-    <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
     <owasp.dependency.check.plugin.version>8.0.1</owasp.dependency.check.plugin.version>
     <owasp.dependency.check.plugin.failBuildOnCVSS>11</owasp.dependency.check.plugin.failBuildOnCVSS>
     <spotbugs.plugin.version>3.1.12.2</spotbugs.plugin.version>
@@ -97,11 +94,6 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>${maven.checkstyle.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven.javadoc.plugin.version}</version>
           <configuration>
@@ -126,14 +118,6 @@
           <configuration>
             <!-- Surefire changed the default to the project.build.directory causing trouble with file paths to test resources -->
             <workingDirectory>${basedir}</workingDirectory>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>${maven.pmd.plugin.version}</version>
-          <configuration>
-            <targetJdk>${java.version}</targetJdk>
           </configuration>
         </plugin>
         <plugin>
@@ -200,11 +184,6 @@
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
           <version>${sonar.maven.plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco.maven.plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.owasp</groupId>
@@ -306,30 +285,6 @@
           <packagingExcludes>WEB-INF/lib/*-sources.jar</packagingExcludes>
           <warName>${project.artifactId}</warName>
         </configuration>
-      </plugin>
-
-      <!-- JaCoCo for test coverage -->
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>default-prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

@@ -20,7 +20,6 @@
     <github.organization>devonfw</github.organization>
     <github.repository>maven-parent</github.repository>
     <github.default.branch>master</github.default.branch>
-    <maven.repository>https://s01.oss.sonatype.org</maven.repository>
     <maven.release.repository>${maven.repository}/service/local/staging/deploy/maven2/</maven.release.repository>
     <maven.snapshot.repository>${maven.repository}/content/repositories/snapshots/</maven.snapshot.repository>
     <maven.archetype.version>3.2.1</maven.archetype.version>
@@ -416,7 +415,7 @@
         <repository>
           <id>ossrh</id>
           <name>OSSRH Snapshots</name>
-          <url>${maven.snapshot.repository}</url>
+          <url>https://s01.oss.sonatype.org</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>

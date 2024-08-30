@@ -330,7 +330,7 @@
             <extensions>true</extensions>
             <configuration>
               <serverId>repository</serverId>
-              <nexusUrl>${maven.repository}</nexusUrl>
+              <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
               <autoReleaseAfterClose>${maven.nexus.staging.auto.release}</autoReleaseAfterClose>
               <autoDropAfterRelease>${maven.nexus.staging.auto.drop}</autoDropAfterRelease>
               <skipNexusStagingDeployMojo>${maven.nexus.staging.deploy.skip}</skipNexusStagingDeployMojo>

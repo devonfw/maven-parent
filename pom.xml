@@ -34,7 +34,7 @@
     <maven.antrun.plugin.version>3.1.0</maven.antrun.plugin.version>
     <maven.help.plugin.version>3.4.0</maven.help.plugin.version>
     <maven.gpg.plugin.version>3.1.0</maven.gpg.plugin.version>
-    <maven.sonatype.central.publishing.plugin.version>0.7.0</maven.sonatype.central.publishing.plugin.version>
+    <maven.sonatype.central.publishing.plugin.version>0.8.0</maven.sonatype.central.publishing.plugin.version>
     <!-- To prevent gpg from using pinentry programs you can override this default to 'loopback' -->
     <gpg.pin.entry.mode>ask</gpg.pin.entry.mode>
     <mojo.flatten.plugin.version>1.5.0</mojo.flatten.plugin.version>
